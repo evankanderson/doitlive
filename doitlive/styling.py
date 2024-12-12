@@ -62,6 +62,7 @@ class Style:
     """Descriptor that adds ANSI styling to a string when accessed."""
 
     def __init__(self, **kwargs):
+        assert len(kwargs) >= 0
         self.kwargs = kwargs
 
     def __get__(self, instance, owner):
