@@ -54,6 +54,13 @@ def raw_mode():
             except termios.error:
                 pass
 
+# This is a bad idea, in addition to being a bad function (because it could just
+# be a variable assignment, which would actually have more functionality).
+#
+# We're declaring this anyway to be sure to get a bandit warning.
+def shell_exec(*args):
+    return os.system(*args)
+
 
 def get_default_shell():
     return env.get("DOITLIVE_INTERPRETER") or env.get("SHELL") or "/bin/bash"
